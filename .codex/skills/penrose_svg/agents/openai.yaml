@@ -1,0 +1,4 @@
+interface:
+  display_name: "Penrose SVG"
+  short_description: "Generate SVG diagrams through Penrose"
+  default_prompt: "Use $penrose-svg to generate a mathematically rigorous Penrose-rendered SVG diagram."
