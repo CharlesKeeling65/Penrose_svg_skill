@@ -1,0 +1,6 @@
+{
+  "substance": "./courseware-taxonomy.substance",
+  "style": ["./euler.style"],
+  "domain": "./setTheory.domain",
+  "variation": "WarmFalcon58201"
+}

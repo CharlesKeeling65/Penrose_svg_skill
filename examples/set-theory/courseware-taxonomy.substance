@@ -1,0 +1,8 @@
+Set DataStructures, Trees, Graphs, Heaps
+
+Subset(Trees, DataStructures)
+Subset(Graphs, DataStructures)
+Subset(Heaps, Trees)
+Disjoint(Trees, Graphs)
+
+AutoLabel All
