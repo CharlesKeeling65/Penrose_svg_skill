@@ -1,0 +1,4 @@
+type Vertex
+
+predicate Arc(Vertex source, Vertex target)
+predicate Highlight(Vertex v)

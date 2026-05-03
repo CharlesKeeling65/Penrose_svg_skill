@@ -1,0 +1,8 @@
+Point A, B, C
+
+Segment(A, B)
+Segment(B, C)
+Segment(C, A)
+Triangle(A, B, C)
+
+AutoLabel All

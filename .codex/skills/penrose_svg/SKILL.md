@@ -24,6 +24,17 @@ Target use cases:
 - Blog posts and static sites that need web-native SVG assets.
 - Frontend products that consume Penrose-rendered SVG assets.
 
+Representative diagram families:
+- Set, subset, overlap, and containment diagrams.
+- Graphs, dependency networks, pipelines, and state-transition diagrams.
+- Geometry diagrams with points, segments, polygons, angles, and incidence relations.
+- Linear algebra diagrams with vectors, maps, bases, and relation annotations.
+- Scientific and technical domains such as circuits, molecules, meshes, and custom domain-specific diagrams when they can be expressed as typed objects plus relations.
+
+Coverage rule:
+- Do not assume Penrose is a fixed chart gallery. Penrose is a declarative domain-modeling system: if a diagram can be represented as typed objects, predicates, functions, constructors, and visual constraints, define the appropriate Domain/Substance/Style files.
+- Do not claim this skill covers every possible chart type exhaustively. For data-heavy statistical charts such as time-series dashboards or exploratory plots, prefer a charting library unless the task needs Penrose's mathematical layout and constraint system.
+
 Non-target use cases:
 - Generative art where mathematical structure is not the source of truth.
 - Photorealistic imagery or raster illustration.

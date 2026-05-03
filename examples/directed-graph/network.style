@@ -1,0 +1,43 @@
+canvas {
+  width = 800
+  height = 600
+}
+
+forall Vertex v {
+  shape v.dot = Circle {
+    r : 24
+    fillColor : rgba(0.16, 0.34, 0.68, 0.85)
+    strokeColor : rgba(0.04, 0.08, 0.18, 1.0)
+    strokeWidth : 2
+  }
+
+  shape v.text = Equation {
+    string : v.label
+    fontSize : "22px"
+    fillColor : rgba(1.0, 1.0, 1.0, 1.0)
+  }
+
+  ensure contains(v.dot, v.text)
+  encourage norm(v.text.center - v.dot.center) == 0
+  layer v.text above v.dot
+}
+
+forall Vertex v
+where Highlight(v) {
+  override v.dot.fillColor = rgba(0.92, 0.28, 0.18, 0.9)
+}
+
+forall Vertex source; Vertex target
+where Arc(source, target) as edge {
+  shape edge.arrow = Line {
+    start : source.dot.center
+    end : target.dot.center
+    strokeWidth : 2.5
+    strokeColor : rgba(0.08, 0.10, 0.16, 0.85)
+    endArrowhead : "straight"
+    endArrowheadSize : 1.4
+  }
+
+  layer edge.arrow below source.dot
+  layer edge.arrow below target.dot
+}

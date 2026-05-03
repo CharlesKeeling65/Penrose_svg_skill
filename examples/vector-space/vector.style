@@ -1,0 +1,63 @@
+canvas {
+  width = 800
+  height = 600
+}
+
+global {
+  shape origin = Circle {
+    center : [400, 300]
+    r : 1
+    fillColor : rgba(0.0, 0.0, 0.0, 0.0)
+    strokeColor : rgba(0.0, 0.0, 0.0, 0.0)
+  }
+}
+
+forall Vector v {
+  shape v.tip = Circle {
+    r : 1
+    fillColor : rgba(0.0, 0.0, 0.0, 0.0)
+    strokeColor : rgba(0.0, 0.0, 0.0, 0.0)
+  }
+
+  shape v.arrow = Line {
+    start : global.origin.center
+    end : v.tip.center
+    strokeWidth : 4
+    strokeColor : rgba(0.22, 0.36, 0.72, 1.0)
+    endArrowhead : "straight"
+    endArrowheadSize : 1.5
+  }
+
+  shape v.text = Equation {
+    string : v.label
+    fontSize : "28px"
+    fillColor : rgba(0.05, 0.10, 0.16, 1.0)
+  }
+
+  ensure disjoint(v.arrow, v.text, 8)
+  ensure disjoint(global.origin, v.tip, 80)
+}
+
+forall Vector u; Vector v
+where Orthogonal(u, v) as rel {
+  shape rel.mark = Equation {
+    string : "\\perp"
+    fontSize : "22px"
+    fillColor : rgba(0.85, 0.20, 0.14, 1.0)
+  }
+
+  ensure disjoint(global.origin, rel.mark, 8)
+}
+
+forall Vector source; Vector target
+where LinearMap(source, target) as m {
+  shape m.map = Line {
+    start : source.tip.center
+    end : target.tip.center
+    strokeWidth : 2
+    strokeStyle : "dashed"
+    strokeColor : rgba(0.85, 0.20, 0.14, 0.85)
+    endArrowhead : "straight"
+    endArrowheadSize : 1.2
+  }
+}

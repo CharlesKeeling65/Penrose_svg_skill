@@ -1,0 +1,45 @@
+canvas {
+  width = 800
+  height = 600
+}
+
+forall Point p {
+  shape p.dot = Circle {
+    r : 10
+    fillColor : rgba(0.05, 0.10, 0.16, 1.0)
+  }
+
+  shape p.text = Equation {
+    string : p.label
+    fontSize : "24px"
+    fillColor : rgba(0.05, 0.10, 0.16, 1.0)
+  }
+
+  ensure disjoint(p.dot, p.text, 8)
+}
+
+forall Point a; Point b
+where Segment(a, b) as edge {
+  shape edge.line = Line {
+    start : a.dot.center
+    end : b.dot.center
+    strokeWidth : 3
+    strokeColor : rgba(0.18, 0.38, 0.58, 1.0)
+  }
+
+  layer edge.line below a.dot
+  layer edge.line below b.dot
+}
+
+forall Point a; Point b; Point c
+where Triangle(a, b, c) as t {
+  shape t.face = Path {
+    d : pathFromPoints("closed", [a.dot.center, b.dot.center, c.dot.center])
+    fillColor : rgba(0.20, 0.55, 0.75, 0.14)
+    strokeColor : rgba(0.20, 0.55, 0.75, 0.0)
+  }
+
+  layer t.face below a.dot
+  layer t.face below b.dot
+  layer t.face below c.dot
+}

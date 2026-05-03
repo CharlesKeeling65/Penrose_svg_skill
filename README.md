@@ -49,12 +49,10 @@ It is not intended for photorealistic imagery, generic decorative SVG art, or wo
 |-- README.md
 |-- package.json
 |-- examples/
-|   `-- set-theory/
-|       |-- setTheory.domain
-|       |-- euler.style
-|       |-- *.substance
-|       |-- *.trio.json
-|       `-- svg/
+|   |-- set-theory/
+|   |-- directed-graph/
+|   |-- geometry/
+|   `-- vector-space/
 `-- .codex/
     `-- skills/
         `-- penrose_svg/
@@ -116,11 +114,20 @@ npx @penrose/roger trios --trios diagrams/trios/*.trio.json --out public/diagram
 
 The examples below are intentionally small. They show how a prompt becomes Penrose source files and then SVG output rendered by `@penrose/roger`. The SVG files are committed so readers can inspect the result without running the renderer first.
 
-All examples share:
+Penrose is not limited to one visual form such as Venn or Euler diagrams. Its core abstraction is domain modeling: define the mathematical or technical vocabulary in Domain, declare a concrete instance in Substance, and encode the visual grammar in Style. Official Penrose materials include domains such as geometry, sets, graphs, linear algebra, circuits, molecules, and word clouds, and users can define their own domains.
 
-- Domain: [`examples/set-theory/setTheory.domain`](examples/set-theory/setTheory.domain)
-- Style: [`examples/set-theory/euler.style`](examples/set-theory/euler.style)
-- Render command: `npm run render:examples`
+This README cannot exhaust every possible chart or diagram type. Instead, it includes representative examples across several domain families:
+
+- Set relations and Euler-style containment
+- Directed technical graphs
+- Geometric point/segment diagrams
+- Vector-space relation diagrams
+
+Render all examples:
+
+```bash
+npm run render:examples
+```
 
 ### 1. Academic Publishing: Disjoint Subsets
 
@@ -181,6 +188,72 @@ Rendered SVG:
 ![Data structure taxonomy rendered with Penrose](examples/set-theory/svg/courseware-taxonomy.svg)
 
 Application scenario: use in API docs, tutorials, or courseware where multiple diagrams can share the same Domain and Style while changing only Substance files.
+
+### 4. System Workflow: Directed Graph
+
+Prompt:
+
+```text
+Use $penrose-svg to create a directed graph for a technical pipeline: Input flows to Parse, Parse flows to Render, Render flows to Export, and Parse can also flow directly to Export. Highlight Render as the active stage. Generate Penrose source and render the SVG only with @penrose/roger.
+```
+
+Penrose files:
+
+- [`graph.domain`](examples/directed-graph/graph.domain)
+- [`network.style`](examples/directed-graph/network.style)
+- [`pipeline.substance`](examples/directed-graph/pipeline.substance)
+- [`pipeline.trio.json`](examples/directed-graph/pipeline.trio.json)
+- [`pipeline.svg`](examples/directed-graph/svg/pipeline.svg)
+
+Rendered SVG:
+
+![Directed pipeline graph rendered with Penrose](examples/directed-graph/svg/pipeline.svg)
+
+Application scenario: use in architecture notes, compiler pipeline explanations, workflow diagrams, or dependency graphs.
+
+### 5. Geometry: Triangle From Points and Segments
+
+Prompt:
+
+```text
+Use $penrose-svg to create a geometry diagram with three points A, B, and C, connected by segments AB, BC, and CA, with a filled triangular face. Keep point and segment declarations in Penrose source and render the SVG with @penrose/roger.
+```
+
+Penrose files:
+
+- [`geometry.domain`](examples/geometry/geometry.domain)
+- [`triangle.style`](examples/geometry/triangle.style)
+- [`triangle.substance`](examples/geometry/triangle.substance)
+- [`triangle.trio.json`](examples/geometry/triangle.trio.json)
+- [`triangle.svg`](examples/geometry/svg/triangle.svg)
+
+Rendered SVG:
+
+![Triangle geometry rendered with Penrose](examples/geometry/svg/triangle.svg)
+
+Application scenario: use in Euclidean geometry notes, mathematical exposition, and theorem illustrations where points and relations remain explicit.
+
+### 6. Linear Algebra: Vector-Space Relation
+
+Prompt:
+
+```text
+Use $penrose-svg to create a vector-space diagram with vectors u, v, and T(u), marking u and v as orthogonal and drawing a dashed map from u to T(u). Keep the vector relation in Substance and render the SVG through @penrose/roger.
+```
+
+Penrose files:
+
+- [`vector.domain`](examples/vector-space/vector.domain)
+- [`vector.style`](examples/vector-space/vector.style)
+- [`orthogonal-map.substance`](examples/vector-space/orthogonal-map.substance)
+- [`orthogonal-map.trio.json`](examples/vector-space/orthogonal-map.trio.json)
+- [`orthogonal-map.svg`](examples/vector-space/svg/orthogonal-map.svg)
+
+Rendered SVG:
+
+![Vector-space relation rendered with Penrose](examples/vector-space/svg/orthogonal-map.svg)
+
+Application scenario: use in linear algebra teaching materials, papers, or notes where vector relations should remain part of the source model.
 
 ## Workflow Summary
 

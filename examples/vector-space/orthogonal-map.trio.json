@@ -1,0 +1,6 @@
+{
+  "substance": "./orthogonal-map.substance",
+  "style": ["./vector.style"],
+  "domain": "./vector.domain",
+  "variation": "VectorMap19372"
+}

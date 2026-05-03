@@ -1,0 +1,6 @@
+{
+  "substance": "./triangle.substance",
+  "style": ["./triangle.style"],
+  "domain": "./geometry.domain",
+  "variation": "TriangleSketch50231"
+}

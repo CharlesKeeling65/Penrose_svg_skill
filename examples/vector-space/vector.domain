@@ -1,0 +1,4 @@
+type Vector
+
+predicate LinearMap(Vector source, Vector target)
+predicate Orthogonal(Vector u, Vector v)

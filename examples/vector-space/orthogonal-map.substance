@@ -1,0 +1,7 @@
+Vector u, v, T_u
+
+Orthogonal(u, v)
+LinearMap(u, T_u)
+
+Label T_u $T(u)$
+AutoLabel u, v

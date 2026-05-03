@@ -1,0 +1,4 @@
+type Point
+
+predicate Segment(Point a, Point b)
+predicate Triangle(Point a, Point b, Point c)

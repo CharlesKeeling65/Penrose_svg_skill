@@ -1,0 +1,6 @@
+{
+  "substance": "./pipeline.substance",
+  "style": ["./network.style"],
+  "domain": "./graph.domain",
+  "variation": "GraphPipeline41417"
+}
