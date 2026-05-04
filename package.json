@@ -4,11 +4,13 @@
   "private": true,
   "description": "Codex skill for generating Penrose-rendered SVG diagrams.",
   "scripts": {
-    "render:examples": "npm run render:examples:set-theory && npm run render:examples:directed-graph && npm run render:examples:geometry && npm run render:examples:vector-space",
+    "render:examples": "npm run render:examples:set-theory && npm run render:examples:directed-graph && npm run render:examples:geometry && npm run render:examples:vector-space && npm run render:examples:group-theory && npm run render:examples:logic-circuit",
     "render:examples:set-theory": "roger trios --trios examples/set-theory/disjoint-subsets.trio.json examples/set-theory/overlapping-fields.trio.json examples/set-theory/courseware-taxonomy.trio.json --out examples/set-theory/svg",
     "render:examples:directed-graph": "roger trio --trio examples/directed-graph/pipeline.trio.json --out examples/directed-graph/svg/pipeline.svg",
     "render:examples:geometry": "roger trio --trio examples/geometry/triangle.trio.json --out examples/geometry/svg/triangle.svg",
-    "render:examples:vector-space": "roger trio --trio examples/vector-space/orthogonal-map.trio.json --out examples/vector-space/svg/orthogonal-map.svg"
+    "render:examples:vector-space": "roger trio --trio examples/vector-space/orthogonal-map.trio.json --out examples/vector-space/svg/orthogonal-map.svg",
+    "render:examples:group-theory": "roger trio --trio examples/group-theory/quaternion-multiplication-table.trio.json --out examples/group-theory/svg/quaternion-multiplication-table.svg",
+    "render:examples:logic-circuit": "roger trio --trio examples/logic-circuit/half-adder.trio.json --out examples/logic-circuit/svg/half-adder.svg"
   },
   "devDependencies": {
     "@penrose/roger": "^3.3.0"

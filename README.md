@@ -52,6 +52,8 @@ It is not intended for photorealistic imagery, generic decorative SVG art, or wo
 |   |-- set-theory/
 |   |-- directed-graph/
 |   |-- geometry/
+|   |-- group-theory/
+|   |-- logic-circuit/
 |   `-- vector-space/
 `-- .codex/
     `-- skills/
@@ -116,12 +118,7 @@ The examples below are intentionally small. They show how a prompt becomes Penro
 
 Penrose is not limited to one visual form such as Venn or Euler diagrams. Its core abstraction is domain modeling: define the mathematical or technical vocabulary in Domain, declare a concrete instance in Substance, and encode the visual grammar in Style. Official Penrose materials include domains such as geometry, sets, graphs, linear algebra, circuits, molecules, and word clouds, and users can define their own domains.
 
-This README cannot exhaust every possible chart or diagram type. Instead, it includes representative examples across several domain families:
-
-- Set relations and Euler-style containment
-- Directed technical graphs
-- Geometric point/segment diagrams
-- Vector-space relation diagrams
+This README cannot exhaust every possible chart or diagram type. Instead, it first summarizes the official gallery examples by domain, then shows representative local examples in a compact three-column table.
 
 Render all examples:
 
@@ -129,131 +126,40 @@ Render all examples:
 npm run render:examples
 ```
 
-### 1. Academic Publishing: Disjoint Subsets
+### Official Gallery Coverage
 
-Prompt:
+The official gallery at [`penrose.cs.cmu.edu/examples`](https://penrose.cs.cmu.edu/examples) currently links the following 53 examples. The table below groups the official example slugs by broad domain so readers can see that Penrose covers far more than set diagrams.
 
-```text
-Use $penrose-svg to create a publication-ready Euler-style diagram showing two disjoint subsets A and B inside a parent set C. Keep all logic in Penrose Domain and Substance files, all visual rules in Style, and render the final SVG with @penrose/roger.
-```
+| Domain family | Official example slugs |
+| --- | --- |
+| Set and category-style relations | `set-theory-domain/tree-euler`, `set-theory-domain/tree-euler-3d`, `set-theory-domain/continuousmap`, `set-potatoes/non-surjection-not-epimorphism` |
+| Algebra, group theory, and linear algebra | `group-theory/quaternion-multiplication-table`, `group-theory/quaternion-cayley-graph`, `exterior-algebra/vector-wedge`, `lagrange-bases/lagrange-bases`, `matrix-ops/tests/matrix-matrix-multiplication` |
+| Graphs, spectral graphs, and hypergraphs | `spectral-graphs/examples/hypercube`, `spectral-graphs/examples/hexagonal-lattice`, `spectral-graphs/examples/dodecahedral-graph`, `spectral-graphs/examples/mobius`, `graph-domain/textbook/sec1/fig5`, `graph-domain/other-examples/hamiltonian-cycle`, `graph-domain/other-examples/arpanet`, `hypergraph/hypergraph` |
+| Geometry, curves, meshes, and impossible objects | `geometry-domain/textbook_problems/c11p12`, `geometry-domain/siggraph-teaser`, `curve-examples/catmull-rom/catmull-rom`, `curve-examples/blobs`, `triangle-mesh-2d/diagrams/cotan-formula`, `triangle-mesh-2d/diagrams/concyclic-pair`, `triangle-mesh-3d/two-triangles`, `mobius/mobius`, `impossible-ngon/ngon`, `envelopes/nephroid` |
+| Topology and topological data analysis | `persistent-homology/persistent-homology` |
+| Physics, probability, stochastic processes, and geometric queries | `walk-on-spheres/SignedAngleOutside`, `walk-on-spheres/walk-on-stars`, `walk-on-spheres/laplace-estimator`, `stochastic-process/stochastic-process`, `stochastic-process/epsilon-shell/AbsorbingBoundary`, `ray-tracing/next-event-estimation`, `geometric-queries/ray-intersect/test-group`, `geometric-queries/test`, `geometric-queries/closest-point/test-group`, `Dynamics/Lyapunov` |
+| Chemistry, circuits, and technical systems | `structural-formula/molecules/caffeine`, `structural-formula/reactions/methane-combustion`, `logic-circuit-domain/half-adder`, `box-arrow-diagram/computer-architecture` |
+| Graphics, fractals, and sampling | `dinoshade/dinoshade`, `random-sampling/test`, `fractals/chaos-game/sierpinski-triangle`, `fractals/ifs/ifs` |
+| Text, data visualization, arrays, and interactivity | `word-cloud/example`, `fancy-text/fancy-text`, `dataviz/linearreg`, `array-models/insertionSort`, `interactive/ellipse-rays`, `interactive/viewport`, `interactive/planets` |
 
-Penrose files:
+### Local Representative Examples
 
-- [`disjoint-subsets.substance`](examples/set-theory/disjoint-subsets.substance)
-- [`disjoint-subsets.trio.json`](examples/set-theory/disjoint-subsets.trio.json)
-- [`disjoint-subsets.svg`](examples/set-theory/svg/disjoint-subsets.svg)
+These local examples are intentionally compact and are arranged in three columns so the README stays scannable. Several examples are simplified originals; the group-theory and logic-circuit examples are source-compatible reproductions of the official gallery examples [`group-theory/quaternion-multiplication-table`](https://penrose.cs.cmu.edu/try/?examples=group-theory/quaternion-multiplication-table) and [`logic-circuit-domain/half-adder`](https://penrose.cs.cmu.edu/try/?examples=logic-circuit-domain/half-adder).
 
-Rendered SVG:
+| Set relations | Group theory | Logic circuits |
+| --- | --- | --- |
+| <img src="examples/set-theory/svg/disjoint-subsets.svg" width="220" alt="Disjoint subsets rendered with Penrose"> | <img src="examples/group-theory/svg/quaternion-multiplication-table.svg" width="220" alt="Quaternion multiplication table rendered with Penrose"> | <img src="examples/logic-circuit/svg/half-adder.svg" width="220" alt="Half-adder logic circuit rendered with Penrose"> |
+| Prompt: `Use $penrose-svg to create a publication-ready Euler-style diagram showing two disjoint subsets A and B inside a parent set C.`<br>Files: [`substance`](examples/set-theory/disjoint-subsets.substance), [`trio`](examples/set-theory/disjoint-subsets.trio.json), [`svg`](examples/set-theory/svg/disjoint-subsets.svg) | Prompt: `Use $penrose-svg to create a quaternion multiplication table in the style of the official Penrose group-theory gallery example.`<br>Files: [`domain`](examples/group-theory/Group.domain), [`style`](examples/group-theory/MultiplicationTable.style), [`substance`](examples/group-theory/groups/quaternions.substance), [`trio`](examples/group-theory/quaternion-multiplication-table.trio.json), [`svg`](examples/group-theory/svg/quaternion-multiplication-table.svg) | Prompt: `Use $penrose-svg to create a half-adder logic circuit with XOR and AND gates, matching the official logic-circuit-domain gallery pattern.`<br>Files: [`domain`](examples/logic-circuit/logic-gates.domain), [`style`](examples/logic-circuit/half-adder-color.style), [`substance`](examples/logic-circuit/half-adder.substance), [`trio`](examples/logic-circuit/half-adder.trio.json), [`svg`](examples/logic-circuit/svg/half-adder.svg) |
 
-![Disjoint subsets rendered with Penrose](examples/set-theory/svg/disjoint-subsets.svg)
+| Directed graph | Geometry | Linear algebra |
+| --- | --- | --- |
+| <img src="examples/directed-graph/svg/pipeline.svg" width="220" alt="Directed pipeline graph rendered with Penrose"> | <img src="examples/geometry/svg/triangle.svg" width="220" alt="Triangle geometry rendered with Penrose"> | <img src="examples/vector-space/svg/orthogonal-map.svg" width="220" alt="Vector-space relation rendered with Penrose"> |
+| Prompt: `Use $penrose-svg to create a directed graph for a technical pipeline: Input flows to Parse, Parse flows to Render, Render flows to Export, and Parse can also flow directly to Export.`<br>Files: [`domain`](examples/directed-graph/graph.domain), [`style`](examples/directed-graph/network.style), [`substance`](examples/directed-graph/pipeline.substance), [`trio`](examples/directed-graph/pipeline.trio.json), [`svg`](examples/directed-graph/svg/pipeline.svg) | Prompt: `Use $penrose-svg to create a geometry diagram with three points A, B, and C, connected by segments AB, BC, and CA, with a filled triangular face.`<br>Files: [`domain`](examples/geometry/geometry.domain), [`style`](examples/geometry/triangle.style), [`substance`](examples/geometry/triangle.substance), [`trio`](examples/geometry/triangle.trio.json), [`svg`](examples/geometry/svg/triangle.svg) | Prompt: `Use $penrose-svg to create a vector-space diagram with vectors u, v, and T(u), marking u and v as orthogonal and drawing a dashed map from u to T(u).`<br>Files: [`domain`](examples/vector-space/vector.domain), [`style`](examples/vector-space/vector.style), [`substance`](examples/vector-space/orthogonal-map.substance), [`trio`](examples/vector-space/orthogonal-map.trio.json), [`svg`](examples/vector-space/svg/orthogonal-map.svg) |
 
-Application scenario: use in a paper, lecture note, or documentation page where the logical claim is that `A` and `B` are disjoint subsets of `C`.
-
-### 2. Courseware: Overlapping Mathematical Fields
-
-Prompt:
-
-```text
-Use $penrose-svg to create a teaching diagram showing Algebra and Geometry as overlapping areas inside Topology. Generate valid Penrose source files and render the SVG only through @penrose/roger.
-```
-
-Penrose files:
-
-- [`overlapping-fields.substance`](examples/set-theory/overlapping-fields.substance)
-- [`overlapping-fields.trio.json`](examples/set-theory/overlapping-fields.trio.json)
-- [`overlapping-fields.svg`](examples/set-theory/svg/overlapping-fields.svg)
-
-Rendered SVG:
-
-![Overlapping fields rendered with Penrose](examples/set-theory/svg/overlapping-fields.svg)
-
-Application scenario: use in course slides, textbook notes, or blog posts where the diagram needs to preserve the distinction between subset and overlap relations.
-
-### 3. Technical Documentation: Data Structure Taxonomy
-
-Prompt:
-
-```text
-Use $penrose-svg to create a technical documentation diagram for a data-structure taxonomy: Trees and Graphs are disjoint subsets of DataStructures, and Heaps are a subset of Trees. Keep the generated SVG reproducible from Penrose source.
-```
-
-Penrose files:
-
-- [`courseware-taxonomy.substance`](examples/set-theory/courseware-taxonomy.substance)
-- [`courseware-taxonomy.trio.json`](examples/set-theory/courseware-taxonomy.trio.json)
-- [`courseware-taxonomy.svg`](examples/set-theory/svg/courseware-taxonomy.svg)
-
-Rendered SVG:
-
-![Data structure taxonomy rendered with Penrose](examples/set-theory/svg/courseware-taxonomy.svg)
-
-Application scenario: use in API docs, tutorials, or courseware where multiple diagrams can share the same Domain and Style while changing only Substance files.
-
-### 4. System Workflow: Directed Graph
-
-Prompt:
-
-```text
-Use $penrose-svg to create a directed graph for a technical pipeline: Input flows to Parse, Parse flows to Render, Render flows to Export, and Parse can also flow directly to Export. Highlight Render as the active stage. Generate Penrose source and render the SVG only with @penrose/roger.
-```
-
-Penrose files:
-
-- [`graph.domain`](examples/directed-graph/graph.domain)
-- [`network.style`](examples/directed-graph/network.style)
-- [`pipeline.substance`](examples/directed-graph/pipeline.substance)
-- [`pipeline.trio.json`](examples/directed-graph/pipeline.trio.json)
-- [`pipeline.svg`](examples/directed-graph/svg/pipeline.svg)
-
-Rendered SVG:
-
-![Directed pipeline graph rendered with Penrose](examples/directed-graph/svg/pipeline.svg)
-
-Application scenario: use in architecture notes, compiler pipeline explanations, workflow diagrams, or dependency graphs.
-
-### 5. Geometry: Triangle From Points and Segments
-
-Prompt:
-
-```text
-Use $penrose-svg to create a geometry diagram with three points A, B, and C, connected by segments AB, BC, and CA, with a filled triangular face. Keep point and segment declarations in Penrose source and render the SVG with @penrose/roger.
-```
-
-Penrose files:
-
-- [`geometry.domain`](examples/geometry/geometry.domain)
-- [`triangle.style`](examples/geometry/triangle.style)
-- [`triangle.substance`](examples/geometry/triangle.substance)
-- [`triangle.trio.json`](examples/geometry/triangle.trio.json)
-- [`triangle.svg`](examples/geometry/svg/triangle.svg)
-
-Rendered SVG:
-
-![Triangle geometry rendered with Penrose](examples/geometry/svg/triangle.svg)
-
-Application scenario: use in Euclidean geometry notes, mathematical exposition, and theorem illustrations where points and relations remain explicit.
-
-### 6. Linear Algebra: Vector-Space Relation
-
-Prompt:
-
-```text
-Use $penrose-svg to create a vector-space diagram with vectors u, v, and T(u), marking u and v as orthogonal and drawing a dashed map from u to T(u). Keep the vector relation in Substance and render the SVG through @penrose/roger.
-```
-
-Penrose files:
-
-- [`vector.domain`](examples/vector-space/vector.domain)
-- [`vector.style`](examples/vector-space/vector.style)
-- [`orthogonal-map.substance`](examples/vector-space/orthogonal-map.substance)
-- [`orthogonal-map.trio.json`](examples/vector-space/orthogonal-map.trio.json)
-- [`orthogonal-map.svg`](examples/vector-space/svg/orthogonal-map.svg)
-
-Rendered SVG:
-
-![Vector-space relation rendered with Penrose](examples/vector-space/svg/orthogonal-map.svg)
-
-Application scenario: use in linear algebra teaching materials, papers, or notes where vector relations should remain part of the source model.
+| Set taxonomy | Mathematical overlap | Courseware containment |
+| --- | --- | --- |
+| <img src="examples/set-theory/svg/courseware-taxonomy.svg" width="220" alt="Data-structure taxonomy rendered with Penrose"> | <img src="examples/set-theory/svg/overlapping-fields.svg" width="220" alt="Overlapping mathematical fields rendered with Penrose"> | <img src="examples/set-theory/svg/disjoint-subsets.svg" width="220" alt="Reusable containment example rendered with Penrose"> |
+| Prompt: `Use $penrose-svg to create a technical documentation diagram for a data-structure taxonomy: Trees and Graphs are disjoint subsets of DataStructures, and Heaps are a subset of Trees.`<br>Files: [`substance`](examples/set-theory/courseware-taxonomy.substance), [`trio`](examples/set-theory/courseware-taxonomy.trio.json), [`svg`](examples/set-theory/svg/courseware-taxonomy.svg) | Prompt: `Use $penrose-svg to create a teaching diagram showing Algebra and Geometry as overlapping areas inside Topology.`<br>Files: [`substance`](examples/set-theory/overlapping-fields.substance), [`trio`](examples/set-theory/overlapping-fields.trio.json), [`svg`](examples/set-theory/svg/overlapping-fields.svg) | Prompt: `Use $penrose-svg to reuse the set Domain and Euler Style for another containment or disjointness claim.`<br>Shared files: [`domain`](examples/set-theory/setTheory.domain), [`style`](examples/set-theory/euler.style), [`svg`](examples/set-theory/svg/disjoint-subsets.svg) |
 
 ## Workflow Summary
 
